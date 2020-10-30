@@ -1,11 +1,10 @@
 package cjmorenozamora.booking.repositories;
 
-import java.util.Date;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import cjmorenozamora.booking.entities.Availability;
+import cjmorenozamora.booking.utils.CompositeKeyAvailability;
 
-public interface AvailabilityRepository extends CrudRepository<Availability,Date>{
+public interface AvailabilityRepository extends JpaRepository<Availability,CompositeKeyAvailability>{
 
 }
