@@ -1,7 +1,8 @@
 package cjmorenozamora.booking.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,14 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private Integer hotel_id;
+	@Column(name="hotel_id")
+	private Integer hotelId;
 	
-	private Date date_from;
+	@Column(name="date_from")
+	private LocalDate dateFrom;
 	
-	private Date date_to;
+	@Column(name="date_to")
+	private LocalDate dateTo;
 	
 	private String email;
 }

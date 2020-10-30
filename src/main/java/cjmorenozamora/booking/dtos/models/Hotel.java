@@ -1,4 +1,4 @@
-package cjmorenozamora.booking.dtos;
+package cjmorenozamora.booking.dtos.models;
 
 import lombok.Data;
 

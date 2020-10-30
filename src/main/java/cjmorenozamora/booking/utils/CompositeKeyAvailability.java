@@ -1,20 +1,20 @@
 package cjmorenozamora.booking.utils;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.Data;
 
 @Data
-public class CompositeKey implements Serializable{
+public class CompositeKeyAvailability implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5637473243596765008L;
 	
-	private Date date;
+	private LocalDate date;
 	
-	private Integer hotel_id;
+	private Integer hotelId;
 
 }

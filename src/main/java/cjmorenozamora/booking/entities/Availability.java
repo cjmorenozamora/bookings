@@ -1,25 +1,28 @@
 package cjmorenozamora.booking.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-import cjmorenozamora.booking.utils.CompositeKey;
+import cjmorenozamora.booking.utils.CompositeKeyAvailability;
 import lombok.Data;
 
 @Entity
 @Table(name="availability")
-@IdClass(CompositeKey.class)
+@IdClass(CompositeKeyAvailability.class)
 @Data
 public class Availability {
 
 	@Id
-	private Date date;
+	private LocalDate date;
+	
 	@Id
-	private Integer hotel_id;
+	@Column(name="hotel_id")
+	private Integer hotelId;
 	
 	private Integer rooms;
 	
