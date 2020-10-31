@@ -1,4 +1,4 @@
-package cjmorenozamora.booking.utils;
+package cjmorenozamora.booking.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class CompositeKeyAvailability implements Serializable{
+public class AvailabilityPk implements Serializable{
 
 	/**
 	 * 

@@ -3,7 +3,7 @@ package cjmorenozamora.booking.dtos.models;
 import lombok.Data;
 
 @Data
-public class Hotel {
+public class HotelDto {
 
 	private Integer idHotel;
 	

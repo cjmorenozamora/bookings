@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cjmorenozamora.booking.dtos.models.Booking;
+import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.dtos.requests.BookingRequest;
 import cjmorenozamora.booking.services.BookingService;
 
@@ -33,18 +33,18 @@ public class BookingController {
 	}
 
 	@GetMapping("/bookings")
-	public List<Booking> getBookings(@RequestParam(required = false) Integer hotel,
+	public List<BookingDto> getBookings(@RequestParam(required = false) Integer hotel,
 			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entryDate,
 			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate exitDate) {
 
-		List<Booking> bookings = new ArrayList<Booking>();
+		List<BookingDto> bookings = new ArrayList<BookingDto>();
 		return bookings;
 	}
 	
 	@GetMapping("/bookings/{bookingId}")
-	public Booking getBooking(@PathVariable Integer bookingId) {
+	public BookingDto getBooking(@PathVariable Integer bookingId) {
 
-		Booking booking = new Booking();
+		BookingDto booking = new BookingDto();
 		
 		return booking;
 		

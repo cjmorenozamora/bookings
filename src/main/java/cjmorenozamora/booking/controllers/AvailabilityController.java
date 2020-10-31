@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import cjmorenozamora.booking.dtos.models.Hotel;
+import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.dtos.requests.CreateAvailabilityRequest;
 import cjmorenozamora.booking.services.AvailabilityService;
 
@@ -27,9 +27,9 @@ public class AvailabilityController {
 	}
 
 	@GetMapping("/availability")
-	public List<Hotel> getAvailability() {
+	public List<HotelDto> getAvailability() {
 
-		List<Hotel> listHotel = new ArrayList<Hotel>();
+		List<HotelDto> listHotel = new ArrayList<HotelDto>();
 
 		return listHotel;
 	}

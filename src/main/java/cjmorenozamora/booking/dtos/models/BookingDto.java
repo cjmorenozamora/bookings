@@ -5,11 +5,11 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class Booking {
+public class BookingDto {
 
 	private Integer bookingId;
 	
-	private Hotel hotel;
+	private HotelDto hotel;
 	
 	private LocalDate entryDate;
 	
