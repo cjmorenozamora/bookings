@@ -17,13 +17,9 @@ public class HotelController {
 	HotelService service;
 	@GetMapping("/hotels")
 	public List<Hotel> getHotels() {
-		List<Hotel> listHotels = new ArrayList<Hotel>();
-		Hotel hotel = new Hotel();;
+		List<Hotel> listHotels = new ArrayList<>();
 		
-		hotel.setName("AC Hotel");
-		
-		
-		listHotels.add(hotel);
+		listHotels = service.findAll();
 		return listHotels;
 	}
 }
