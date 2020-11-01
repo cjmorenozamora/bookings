@@ -39,7 +39,8 @@ public class BookingController {
 			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entryDate,
 			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate exitDate) {
 
-		List<BookingDto> bookings = new ArrayList<BookingDto>();
+		List<BookingDto> bookings = service.getBookings(hotel, entryDate, exitDate);
+		
 		return bookings;
 	}
 	
