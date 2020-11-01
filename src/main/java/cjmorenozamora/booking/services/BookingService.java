@@ -14,6 +14,7 @@ import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Booking;
 import cjmorenozamora.booking.entities.Hotel;
 import cjmorenozamora.booking.interfaces.BookingInterface;
+import cjmorenozamora.booking.mappers.MapperBooking;
 import cjmorenozamora.booking.repositories.AvailabilityRepository;
 import cjmorenozamora.booking.repositories.BookingRepository;
 
@@ -25,6 +26,9 @@ public class BookingService implements BookingInterface {
 	
 	@Autowired
 	AvailabilityRepository availabilityRepository;
+	
+	@Autowired
+	MapperBooking mapperBooking;
 
 	@Override
 	@Transactional
@@ -64,11 +68,8 @@ public class BookingService implements BookingInterface {
 	@Override
 	public BookingDto getBooking(Integer bookingId) {
 		
-		Booking booking = bookingRepository.getOne(bookingId);
-		ModelMapper modelMapper = new ModelMapper(); 
-		BookingDto bookingDto = modelMapper.map(booking,BookingDto.class);
-		
-		return bookingDto;
+		Booking booking = bookingRepository.findById(bookingId).get();	
+		return mapperBooking.mapperBooking(booking);
 	}
 
 	@Override
