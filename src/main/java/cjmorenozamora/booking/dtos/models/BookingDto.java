@@ -17,7 +17,9 @@ public class BookingDto {
 	
 	private HotelDto hotel;
 	
-	private LocalDate entryDate;
+	private LocalDate dateFrom;
 	
-	private LocalDate exitDate;
+	private LocalDate dateTo;
+	
+	private String email;
 }

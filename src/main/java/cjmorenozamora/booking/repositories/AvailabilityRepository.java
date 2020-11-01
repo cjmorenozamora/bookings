@@ -13,11 +13,11 @@ import cjmorenozamora.booking.entities.Hotel;
 
 public interface AvailabilityRepository extends JpaRepository<Availability,AvailabilityPk>{
 
-	@Query("SELECT h FROM Hotel h JOIN FETCH Availability a ON h.id=a.hotelId WHERE a.rooms>0 AND a.date BETWEEN ?1 AND ?2")
+	@Query("SELECT DISTINCT a.hotel FROM Availability a JOIN a.hotel WHERE a.rooms>0 AND a.date BETWEEN ?1 AND ?2")
 	List<Hotel> findHotels(LocalDate entryDate, LocalDate exitDate);
 	
 	@Modifying
-	@Query("UPDATE Availability a SET a.rooms = a.rooms-1 WHERE (a.date BETWEEN ?1 AND ?2) AND (a.hotelId = ?3)")
+	@Query("UPDATE Availability a SET a.rooms = a.rooms-1 WHERE (a.date BETWEEN ?1 AND ?2) AND (a.hotel.id = ?3)")
 	Integer updateAvailability(LocalDate entryDate, LocalDate exitDate, Integer hotelId);
 
 }

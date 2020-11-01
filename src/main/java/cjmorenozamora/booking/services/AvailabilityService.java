@@ -25,18 +25,13 @@ public class AvailabilityService implements AvailabilityInterface {
 	@Override
 	public void createAvailability(Integer hotelId, LocalDate dateFrom, LocalDate dateTo, Integer rooms) {
 		
-		if(dateFrom.equals(dateTo)) {
-			
-			insertAvailability(hotelId, rooms, dateFrom);
-		}
-		else {
+		
 			List<LocalDate> dateList = new ArrayList<LocalDate>();
-			dateList = dateFrom.datesUntil(dateTo).collect(Collectors.toList());
-			dateList.add(dateTo);
+			dateList = dateFrom.datesUntil(dateTo.plusDays(1)).collect(Collectors.toList());
 			for (LocalDate date : dateList) {
 				insertAvailability(hotelId, rooms, date);
 			}
-		}		
+				
 	}
 
 
@@ -48,7 +43,7 @@ public class AvailabilityService implements AvailabilityInterface {
 	
 		hotels.forEach(hotel -> hotelsRest.add(modelMapper.map(hotel, HotelDto.class)));	
 		
-		return hotelsRest.stream().distinct().collect(Collectors.toList());
+		return hotelsRest;
 	}
 	
 	private void insertAvailability(Integer hotelId, Integer rooms, LocalDate date) {

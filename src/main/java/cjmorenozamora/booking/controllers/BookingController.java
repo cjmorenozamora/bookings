@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -43,9 +44,11 @@ public class BookingController {
 	}
 	
 	@GetMapping("/bookings/{bookingId}")
-	public BookingDto getBooking(@PathVariable Integer bookingId) {
+	public BookingDto getBooking(@NotNull(message = "Booking id is mandatory") @PathVariable Integer bookingId) {
 
 		BookingDto booking = new BookingDto();
+		
+		booking = service.getBooking(bookingId);
 		
 		return booking;
 		

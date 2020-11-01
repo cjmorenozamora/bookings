@@ -1,13 +1,16 @@
 package cjmorenozamora.booking.services;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cjmorenozamora.booking.dtos.models.BookingDto;
+import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Booking;
 import cjmorenozamora.booking.entities.Hotel;
 import cjmorenozamora.booking.interfaces.BookingInterface;
@@ -60,8 +63,12 @@ public class BookingService implements BookingInterface {
 
 	@Override
 	public BookingDto getBooking(Integer bookingId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Booking booking = bookingRepository.getOne(bookingId);
+		ModelMapper modelMapper = new ModelMapper(); 
+		BookingDto bookingDto = modelMapper.map(booking,BookingDto.class);
+		
+		return bookingDto;
 	}
 
 	@Override

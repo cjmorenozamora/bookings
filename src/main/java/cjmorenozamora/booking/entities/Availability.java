@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,10 +27,14 @@ public class Availability {
 	@Id
 	private LocalDate date;
 	
+	@ManyToOne
+	@JoinColumn(name="hotel_id", insertable = false, updatable = false)
+	private Hotel hotel;
+	
+	private Integer rooms;
+	
 	@Id
 	@Column(name="hotel_id")
 	private Integer hotelId;
-	
-	private Integer rooms;
 	
 }
