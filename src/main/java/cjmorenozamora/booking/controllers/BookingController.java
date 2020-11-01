@@ -29,6 +29,7 @@ public class BookingController {
 	@PostMapping("/booking")
 	public void createBooking(@Valid @RequestBody BookingRequest request) {
 
+			service.createBooking(request.getHotel(), request.getEntryDate(), request.getExitDate(), request.getEmail());
 		
 	}
 

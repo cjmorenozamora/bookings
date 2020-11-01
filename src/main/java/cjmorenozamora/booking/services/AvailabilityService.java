@@ -1,31 +1,64 @@
 package cjmorenozamora.booking.services;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
+import cjmorenozamora.booking.entities.Availability;
+import cjmorenozamora.booking.entities.AvailabilityPk;
+import cjmorenozamora.booking.entities.Hotel;
 import cjmorenozamora.booking.interfaces.AvailabilityInterface;
 import cjmorenozamora.booking.repositories.AvailabilityRepository;
 
 @Service
-public class AvailabilityService implements AvailabilityInterface{
+public class AvailabilityService implements AvailabilityInterface {
 
-		@Autowired
-		AvailabilityRepository repository;
+	@Autowired
+	AvailabilityRepository repository;
 
-		@Override
-		public void createAvailability(Integer hotelId, LocalDate entryDate, LocalDate exitDate, Integer rooms) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public List<HotelDto> getAvailability(LocalDate entryDate, LocalDate exitDate) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	@Override
+	public void createAvailability(Integer hotelId, LocalDate dateFrom, LocalDate dateTo, Integer rooms) {
 		
+		if(dateFrom.equals(dateTo)) {
+			
+			insertAvailability(hotelId, rooms, dateFrom);
+		}
+		else {
+			List<LocalDate> dateList = new ArrayList<LocalDate>();
+			dateList = dateFrom.datesUntil(dateTo).collect(Collectors.toList());
+			dateList.add(dateTo);
+			for (LocalDate date : dateList) {
+				insertAvailability(hotelId, rooms, date);
+			}
+		}		
+	}
+
+
+	@Override
+	public List<HotelDto> getAvailability(LocalDate entryDate, LocalDate exitDate) {
+		List<Hotel> hotels = repository.findHotels(entryDate, exitDate);		
+		ModelMapper modelMapper = new ModelMapper(); 
+		List<HotelDto> hotelsRest = new ArrayList<>();
+	
+		hotels.forEach(hotel -> hotelsRest.add(modelMapper.map(hotel, HotelDto.class)));	
+		
+		return hotelsRest.stream().distinct().collect(Collectors.toList());
+	}
+	
+	private void insertAvailability(Integer hotelId, Integer rooms, LocalDate date) {
+		AvailabilityPk pk = AvailabilityPk.builder().date(date).hotelId(hotelId).build();
+
+		if (repository.findById(pk).isEmpty()) {
+			Availability availability = Availability.builder().hotelId(hotelId).date(date).rooms(rooms).build();
+
+			repository.save(availability);
+		}
+	}
+
 }

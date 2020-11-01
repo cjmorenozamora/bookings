@@ -8,12 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="availability")
 @IdClass(AvailabilityPk.class)
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Availability {
 
 	@Id

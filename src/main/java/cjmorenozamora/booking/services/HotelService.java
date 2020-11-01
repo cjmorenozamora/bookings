@@ -22,9 +22,9 @@ public class HotelService implements HotelInterface{
 	public List<HotelDto> findAll() {
 		List<Hotel> hotels = repository.findAll();
 		ModelMapper modelMapper = new ModelMapper(); 
-		List<cjmorenozamora.booking.dtos.models.HotelDto> hotelsRest = new ArrayList<>();
+		List<HotelDto> hotelsRest = new ArrayList<>();
 	
-		hotels.forEach(hotel -> hotelsRest.add(modelMapper.map(hotel,  cjmorenozamora.booking.dtos.models.HotelDto.class)));
+		hotels.forEach(hotel -> hotelsRest.add(modelMapper.map(hotel, HotelDto.class)));
 		return hotelsRest;
 	}
 	

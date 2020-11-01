@@ -29,4 +29,24 @@ public class CustomGlobalExceptionHandler {
 		return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
     }
 
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> dateUntilsException(HttpServletResponse response, IllegalArgumentException e){
+			
+		return new ResponseEntity<>("Incorrect date range",HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+	
+	
+	@ExceptionHandler(InstantiationException.class)
+    public ResponseEntity<String> builderException(HttpServletResponse response, InstantiationException e){
+			
+		return new ResponseEntity<>("ERROR builder lombok",HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+	
+	
+	@ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> builderException(HttpServletResponse response, RuntimeException e){
+			
+		return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
