@@ -5,20 +5,26 @@
   
   Una vez realizada la instalación accedemos a la terminal y ejecutamos el siguiente comando.
     
-    docker run -p 5432:5432 --name yourContainerName -e POSTGRES_PASSWORD=yourPassword -d postgres
+    docker run -p 5432:5432 --name [containerName] -e POSTGRES_PASSWORD=[yourPassword] -d postgres
     
-  A continuación cargaremos nuestro script 'bookings.sql' en la base de datos.
+  A continuación cargaremos nuestro script 'bookings.sql' en la base de datos. Accedemos al directorio booking del repositorio git descargado y ejecutamos
     
-    docker cp RutaCorrespondiente/bookings.sql prueba:/docker-entrypoint-initdb.d/dump.sql
+    docker cp ./BBDD/bookings.sql [containerName]:/docker-entrypoint-initdb.d/dump.sql
 
-    docker exec -u postgres prueba psql postgres postgres -f docker-entrypoint-initdb.d/dump.sql
+    docker exec -u postgres [containerName] psql postgres postgres -f docker-entrypoint-initdb.d/dump.sql
+    
+  donde [containerName] será el nombre deseado para el contenedor.
 
   Ya tenemos la BBDD disponible para ejecutar al aplicación.
 
 
 # Levantar Aplicación con Maven
 
-  Abrimos una terminal en el directorio raiz del proyecto y ejecutamos mvn spring-boot:run. Una vez terminada la ejecución ya tendremos disponible la aplicación.
+  Abrimos una terminal en el directorio raiz del proyecto y ejecutamos 
+  		
+	mvn spring-boot:run 
+		
+  Una vez terminada la ejecución ya tendremos disponible la aplicación.
 
 
 # Urls para probar la aplicación.
