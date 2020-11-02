@@ -112,7 +112,7 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	public BookingDto getBooking(Integer bookingId) {
 
-		Booking booking = bookingRepository.findById(bookingId).get();
+		Booking booking = bookingRepository.findById(bookingId).orElseThrow();
 		return mapperBooking.mapperBooking(booking);
 	}
 
@@ -121,7 +121,7 @@ public class BookingServiceImpl implements BookingService {
 	public void deleteBookings(Integer bookingId) {
 		
 
-		Booking booking = bookingRepository.findById(bookingId).get();
+		Booking booking = bookingRepository.findById(bookingId).orElseThrow();
 
 		bookingRepository.deleteById(bookingId);
 		

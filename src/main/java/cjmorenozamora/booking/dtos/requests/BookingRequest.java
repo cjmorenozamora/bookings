@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import cjmorenozamora.booking.validations.constraint.DateCreateBookingConstraint;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
+@DateCreateBookingConstraint(message = "Dates are incorrect")
 public class BookingRequest {
 
 	@NotNull(message = "Hotel id is mandatory")

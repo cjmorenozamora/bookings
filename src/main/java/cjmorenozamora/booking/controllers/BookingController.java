@@ -1,7 +1,6 @@
 package cjmorenozamora.booking.controllers;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,8 +29,8 @@ public class BookingController {
 	@PostMapping("/booking")
 	public void createBooking(@Valid @RequestBody BookingRequest request) {
 
-			service.createBooking(request.getHotel(), request.getEntryDate(), request.getExitDate(), request.getEmail());
-		
+		service.createBooking(request.getHotel(), request.getEntryDate(), request.getExitDate(), request.getEmail());
+
 	}
 
 	@GetMapping("/bookings")
@@ -40,21 +39,21 @@ public class BookingController {
 			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate exitDate) {
 
 		List<BookingDto> bookings = service.getBookings(hotel, entryDate, exitDate);
-		
+
 		return bookings;
 	}
-	
+
 	@GetMapping("/bookings/{bookingId}")
 	public BookingDto getBooking(@NotNull(message = "Booking id is mandatory") @PathVariable Integer bookingId) {
 
 		BookingDto booking = new BookingDto();
-		
+
 		booking = service.getBooking(bookingId);
-		
+
 		return booking;
-		
+
 	}
-	
+
 	@DeleteMapping("/bookings/{booking}")
 	public void deleteBookings(@PathVariable Integer booking) {
 

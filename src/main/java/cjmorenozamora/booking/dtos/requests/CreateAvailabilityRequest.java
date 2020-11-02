@@ -4,9 +4,13 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.CreditCardNumber;
+
+import cjmorenozamora.booking.validations.constraint.DateCreateAvailabilityConstraint;
 import lombok.Data;
 
 @Data
+@DateCreateAvailabilityConstraint(message = "Dates are incorrect")
 public class CreateAvailabilityRequest {
 
 	@NotNull(message = "Hotel is mandatory")
