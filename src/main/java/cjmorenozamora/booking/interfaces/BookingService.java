@@ -5,7 +5,7 @@ import java.util.List;
 
 import cjmorenozamora.booking.dtos.models.BookingDto;
 
-public interface BookingInterface {
+public interface BookingService {
 	
 	public void createBooking(Integer hotelId, LocalDate entryDate, LocalDate exitDate, String email);
 	

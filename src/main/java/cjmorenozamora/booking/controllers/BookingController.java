@@ -19,13 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.dtos.requests.BookingRequest;
-import cjmorenozamora.booking.services.BookingService;
+import cjmorenozamora.booking.services.BookingServiceImpl;
 
 @RestController
 public class BookingController {
 
 	@Autowired
-	BookingService service;
+	BookingServiceImpl service;
 
 	@PostMapping("/booking")
 	public void createBooking(@Valid @RequestBody BookingRequest request) {

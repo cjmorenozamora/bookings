@@ -4,7 +4,7 @@ import java.util.List;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 
-public interface HotelInterface {
+public interface HotelService {
 
 	public List<HotelDto> findAll();
 }

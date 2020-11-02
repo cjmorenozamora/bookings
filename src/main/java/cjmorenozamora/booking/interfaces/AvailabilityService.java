@@ -5,7 +5,7 @@ import java.util.List;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 
-public interface AvailabilityInterface {
+public interface AvailabilityService {
 
 	public void createAvailability(Integer hotelId, LocalDate entryDate, LocalDate exitDate, Integer rooms);
 	

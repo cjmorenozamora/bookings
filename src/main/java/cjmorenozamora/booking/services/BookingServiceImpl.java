@@ -13,14 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.entities.Booking;
 import cjmorenozamora.booking.entities.Hotel;
-import cjmorenozamora.booking.interfaces.BookingInterface;
+import cjmorenozamora.booking.interfaces.BookingService;
 import cjmorenozamora.booking.mappers.MapperBooking;
 import cjmorenozamora.booking.repositories.AvailabilityRepository;
 import cjmorenozamora.booking.repositories.BookingRepository;
 import cjmorenozamora.booking.specifications.GetBookingsSpecifications;
 
 @Service
-public class BookingService implements BookingInterface {
+public class BookingServiceImpl implements BookingService {
 
 	@Autowired
 	BookingRepository bookingRepository;

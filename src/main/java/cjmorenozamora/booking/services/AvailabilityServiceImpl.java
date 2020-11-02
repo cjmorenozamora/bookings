@@ -13,11 +13,11 @@ import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Availability;
 import cjmorenozamora.booking.entities.AvailabilityPk;
 import cjmorenozamora.booking.entities.Hotel;
-import cjmorenozamora.booking.interfaces.AvailabilityInterface;
+import cjmorenozamora.booking.interfaces.AvailabilityService;
 import cjmorenozamora.booking.repositories.AvailabilityRepository;
 
 @Service
-public class AvailabilityService implements AvailabilityInterface {
+public class AvailabilityServiceImpl implements AvailabilityService {
 
 	@Autowired
 	AvailabilityRepository repository;

@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.dtos.requests.CreateAvailabilityRequest;
-import cjmorenozamora.booking.services.AvailabilityService;
+import cjmorenozamora.booking.services.AvailabilityServiceImpl;
 
 @RestController
 public class AvailabilityController {
 
 	@Autowired
-	AvailabilityService service;
+	AvailabilityServiceImpl service;
 
 	@PutMapping("/availability")
 	public void createAvailability(@Valid @RequestBody CreateAvailabilityRequest request) {

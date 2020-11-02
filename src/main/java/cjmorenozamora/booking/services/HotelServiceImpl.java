@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Hotel;
-import cjmorenozamora.booking.interfaces.HotelInterface;
+import cjmorenozamora.booking.interfaces.HotelService;
 import cjmorenozamora.booking.repositories.HotelRepository;
 
 @Service
-public class HotelService implements HotelInterface{
+public class HotelServiceImpl implements HotelService{
 
 	@Autowired
 	HotelRepository repository;
