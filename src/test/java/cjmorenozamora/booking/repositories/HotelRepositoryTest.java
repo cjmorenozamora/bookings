@@ -18,16 +18,15 @@ public class HotelRepositoryTest {
 
 	@Autowired
 	HotelRepository repository;
-	
+
 	@Test
 	public void contextLoads() {
 	}
-	
-	
+
 	@Test
 	public void testFindAllOk() {
 		List<Hotel> hotels = repository.findAll();
-		
+
 		assertEquals(3, hotels.size());
 	}
 }

@@ -35,18 +35,15 @@ public class BookingServiceImpl implements BookingService {
 	@Transactional
 	public void createBooking(Integer hotelId, LocalDate entryDate, LocalDate exitDate, String email) {
 
-		// primero tengo que ver si hay disponibilidad en ese hotel y en esas fechas, en
-		// el caso de que haya proceder a realizar la reserva
-
 		List<Hotel> hotels = availabilityRepository.findHotels(entryDate, entryDate);
 		Boolean available = false;
 
 		Iterator<Hotel> it = hotels.iterator();
-		
-		while(it.hasNext() && available == false) {
-			
-			if(it.next().getId() == hotelId) {
-				available=true;
+
+		while (it.hasNext() && available == false) {
+
+			if (it.next().getId() == hotelId) {
+				available = true;
 			}
 		}
 
@@ -55,7 +52,7 @@ public class BookingServiceImpl implements BookingService {
 					.build();
 			bookingRepository.save(booking);
 			availabilityRepository.updateAvailability(entryDate, exitDate, hotelId);
-		}else {
+		} else {
 			throw new RuntimeException("No hay reservas");
 		}
 
@@ -70,9 +67,9 @@ public class BookingServiceImpl implements BookingService {
 		Specification<Booking> specification = null;
 
 		if (hotelId == null && entryDate == null && exitDate == null) {
-			
+
 			bookingList = bookingRepository.findAll();
-			
+
 		} else {
 
 			if (hotelId != null) {
@@ -119,13 +116,13 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	@Transactional
 	public void deleteBookings(Integer bookingId) {
-		
 
 		Booking booking = bookingRepository.findById(bookingId).orElseThrow();
 
 		bookingRepository.deleteById(bookingId);
-		
-		availabilityRepository.updateAvailabilityAddRooms(booking.getDateFrom(), booking.getDateTo(), booking.getHotelId());
+
+		availabilityRepository.updateAvailabilityAddRooms(booking.getDateFrom(), booking.getDateTo(),
+				booking.getHotelId());
 
 	}
 }

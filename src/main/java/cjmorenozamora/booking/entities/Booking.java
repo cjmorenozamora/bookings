@@ -17,6 +17,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entidad que hace referencia a una reserva.
+ * 
+ * @author cjmoreno
+ *
+ */
 @Entity
 @Table(name = "bookings")
 @Data

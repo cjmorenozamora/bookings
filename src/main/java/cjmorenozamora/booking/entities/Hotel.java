@@ -11,8 +11,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entidad que hace referencia a un hotel.
+ * @author cjmoreno
+ *
+ */
 @Entity
-@Table(name="hotels")
+@Table(name = "hotels")
 @Data
 @Builder
 @AllArgsConstructor
@@ -22,8 +27,8 @@ public class Hotel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String name;
-	
+
 	private Integer category;
 }

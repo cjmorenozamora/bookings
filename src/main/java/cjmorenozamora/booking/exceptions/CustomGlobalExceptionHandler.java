@@ -16,7 +16,7 @@ public class CustomGlobalExceptionHandler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<String> methodArgumentNotValidException(HttpServletResponse response,
 			MethodArgumentNotValidException e) {
-		
+
 		return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
 	}
 

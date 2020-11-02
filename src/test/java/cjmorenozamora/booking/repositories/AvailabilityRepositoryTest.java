@@ -19,30 +19,28 @@ import cjmorenozamora.booking.entities.Hotel;
 @DataJpaTest
 public class AvailabilityRepositoryTest {
 
-	
 	@Autowired
 	AvailabilityRepository repository;
-	
+
 	@Test
 	public void contextLoads() {
 	}
-	
+
 	@Test
 	public void testFindAllOk() {
-		 List<Availability> availabilities = repository.findAll();
-		
+		List<Availability> availabilities = repository.findAll();
+
 		assertEquals(54, availabilities.size());
 	}
-	
+
 	public void testGetAvailablesHotels() {
 		LocalDate entryDate = LocalDate.of(2020, Month.DECEMBER, 10);
 		LocalDate exitDate = LocalDate.of(2020, Month.DECEMBER, 15);
-		
+
 		List<Hotel> hotels = repository.findHotels(entryDate, exitDate);
-		
-		
+
 		assertEquals(3, hotels.size());
-		
+
 	}
 
 }

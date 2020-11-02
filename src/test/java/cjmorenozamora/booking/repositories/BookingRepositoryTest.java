@@ -15,20 +15,18 @@ import cjmorenozamora.booking.entities.Booking;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class BookingRepositoryTest {
-	
+
 	@Autowired
 	BookingRepository repository;
-	
-	
+
 	@Test
 	public void contextLoads() {
 	}
-	
-	
+
 	@Test
 	public void testFindAllOk() {
 		List<Booking> bookings = repository.findAll();
-		
+
 		assertEquals(1, bookings.size());
 	}
 

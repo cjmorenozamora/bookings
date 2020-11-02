@@ -5,7 +5,11 @@ import org.springframework.stereotype.Component;
 import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Booking;
-
+/**
+ * Esta clase nos ayuda a mapear el objeto entidad Booking al dto BookingDto.
+ * @author cjmoreno
+ *
+ */
 @Component
 public class MapperBooking {
 

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import cjmorenozamora.booking.entities.Hotel;
 
-public interface HotelRepository extends JpaRepository<Hotel, Integer>{
+public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 
 }

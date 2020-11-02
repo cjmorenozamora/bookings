@@ -22,30 +22,29 @@ import cjmorenozamora.booking.services.impl.HotelServiceImpl;
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(HotelController.class)
 public class HotelControllerTest {
-	
+
 	@Autowired
 	private MockMvc mvc;
-	
+
 	@MockBean
 	private HotelServiceImpl service;
-	
+
 	@Test
 	public void findAllOk() throws Exception {
-		
+
 		HotelDto hotel1 = HotelDto.builder().category(4).idHotel(1).name("AC CORDOBA").build();
 		HotelDto hotel2 = HotelDto.builder().category(5).idHotel(2).name("MELIA").build();
 		HotelDto hotel3 = HotelDto.builder().category(2).idHotel(3).name("AVERROES").build();
-		
+
 		List<HotelDto> hotelList = new ArrayList<>();
-		
+
 		hotelList.add(hotel1);
 		hotelList.add(hotel2);
 		hotelList.add(hotel3);
-		
+
 		when(service.findAll()).thenReturn(hotelList);
 		this.mvc.perform(get("/hotels")).andDo(print()).andExpect(status().isOk());
-		
-		
+
 	}
 
 }

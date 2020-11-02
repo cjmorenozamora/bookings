@@ -15,8 +15,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entidad que hacer referencia a la disponibilidad.
+ * 
+ * @author cjmoreno
+ *
+ */
 @Entity
-@Table(name="availability")
+@Table(name = "availability")
 @IdClass(AvailabilityPk.class)
 @Data
 @Builder
@@ -26,15 +32,15 @@ public class Availability {
 
 	@Id
 	private LocalDate date;
-	
+
 	@ManyToOne
-	@JoinColumn(name="hotel_id", insertable = false, updatable = false)
+	@JoinColumn(name = "hotel_id", insertable = false, updatable = false)
 	private Hotel hotel;
-	
+
 	private Integer rooms;
-	
+
 	@Id
-	@Column(name="hotel_id")
+	@Column(name = "hotel_id")
 	private Integer hotelId;
-	
+
 }

@@ -11,16 +11,17 @@ import javax.validation.Payload;
 
 import cjmorenozamora.booking.validations.implementations.DateCreateBookingImpl;
 
-@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE })
+@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
+		ElementType.PARAMETER, ElementType.TYPE_USE })
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = {DateCreateBookingImpl.class})
+@Constraint(validatedBy = { DateCreateBookingImpl.class })
 public @interface DateCreateBookingConstraint {
-	
-	String message();
-	
-	Class<?> [] groups() default {};
 
-	Class<? extends Payload> [] payload() default {};
+	String message();
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
 
 }

@@ -18,12 +18,21 @@ import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.dtos.requests.CreateAvailabilityRequest;
 import cjmorenozamora.booking.services.impl.AvailabilityServiceImpl;
 
+/*
+ * Controller que gestionará los servicios correspondientes a la entidad Availavility.
+ */
 @RestController
 public class AvailabilityController {
 
 	@Autowired
 	AvailabilityServiceImpl service;
 
+	/**
+	 * Recurso para crear una disponibilidad.
+	 * 
+	 * @param request Este parámetro recoge toda la información necesaria para dar
+	 *                de alta una disponibilidad.
+	 */
 	@PutMapping("/availability")
 	public void createAvailability(@Valid @RequestBody CreateAvailabilityRequest request) {
 
@@ -31,6 +40,14 @@ public class AvailabilityController {
 
 	}
 
+	/**
+	 * Recurso por el cual obtenemos los hoteles que tienen disponibilidad en las
+	 * fechas indicadas.
+	 * 
+	 * @param entryDate Fecha de entrada al hotel.
+	 * @param exitDate  Fecha de salida del hotel.
+	 * @return Lista de hoteles que están disponibles para realizar una reserva.
+	 */
 	@GetMapping("/availability")
 	public List<HotelDto> getAvailability(
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entryDate,

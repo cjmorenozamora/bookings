@@ -48,7 +48,8 @@ public class AvailabilityControllerTest {
 		LocalDate exitDate = LocalDate.of(2020, Month.DECEMBER, 12);
 
 		when(service.getAvailability(entryDate, exitDate)).thenReturn(hotelList);
-		this.mvc.perform(get("/availability?entryDate=2020-12-10&exitDate=2020-12-15")).andDo(print()).andExpect(status().isOk());
+		this.mvc.perform(get("/availability?entryDate=2020-12-10&exitDate=2020-12-15")).andDo(print())
+				.andExpect(status().isOk());
 
 	}
 

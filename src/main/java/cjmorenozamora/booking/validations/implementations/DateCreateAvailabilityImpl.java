@@ -9,7 +9,8 @@ import cjmorenozamora.booking.dtos.requests.BookingRequest;
 import cjmorenozamora.booking.dtos.requests.CreateAvailabilityRequest;
 import cjmorenozamora.booking.validations.constraint.DateCreateAvailabilityConstraint;
 
-public class DateCreateAvailabilityImpl implements ConstraintValidator<DateCreateAvailabilityConstraint, CreateAvailabilityRequest> {
+public class DateCreateAvailabilityImpl
+		implements ConstraintValidator<DateCreateAvailabilityConstraint, CreateAvailabilityRequest> {
 
 	@Override
 	public boolean isValid(CreateAvailabilityRequest availabilityRequest, ConstraintValidatorContext context) {
