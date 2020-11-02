@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class BookingRequest {
 
 	@NotNull(message = "Hotel id is mandatory")

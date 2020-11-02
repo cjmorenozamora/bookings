@@ -1,4 +1,4 @@
-package cjmorenozamora.booking.services;
+package cjmorenozamora.booking.services.impl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.entities.Booking;
 import cjmorenozamora.booking.entities.Hotel;
-import cjmorenozamora.booking.interfaces.BookingService;
 import cjmorenozamora.booking.mappers.MapperBooking;
 import cjmorenozamora.booking.repositories.AvailabilityRepository;
 import cjmorenozamora.booking.repositories.BookingRepository;
+import cjmorenozamora.booking.services.BookingService;
 import cjmorenozamora.booking.specifications.GetBookingsSpecifications;
 
 @Service

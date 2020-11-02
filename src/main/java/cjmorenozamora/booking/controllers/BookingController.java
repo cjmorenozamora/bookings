@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cjmorenozamora.booking.dtos.models.BookingDto;
 import cjmorenozamora.booking.dtos.requests.BookingRequest;
-import cjmorenozamora.booking.services.BookingServiceImpl;
+import cjmorenozamora.booking.services.impl.BookingServiceImpl;
 
 @RestController
 public class BookingController {

@@ -1,4 +1,4 @@
-package cjmorenozamora.booking.services;
+package cjmorenozamora.booking.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.entities.Hotel;
-import cjmorenozamora.booking.interfaces.HotelService;
 import cjmorenozamora.booking.repositories.HotelRepository;
+import cjmorenozamora.booking.services.HotelService;
 
 @Service
 public class HotelServiceImpl implements HotelService{

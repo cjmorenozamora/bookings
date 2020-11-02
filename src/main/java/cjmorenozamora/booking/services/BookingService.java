@@ -1,4 +1,4 @@
-package cjmorenozamora.booking.interfaces;
+package cjmorenozamora.booking.services;
 
 import java.time.LocalDate;
 import java.util.List;

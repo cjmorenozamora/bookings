@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
-import cjmorenozamora.booking.services.HotelServiceImpl;
+import cjmorenozamora.booking.services.impl.HotelServiceImpl;
 
 @RestController
 public class HotelController {

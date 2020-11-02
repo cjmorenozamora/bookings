@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cjmorenozamora.booking.dtos.models.HotelDto;
 import cjmorenozamora.booking.dtos.requests.CreateAvailabilityRequest;
-import cjmorenozamora.booking.services.AvailabilityServiceImpl;
+import cjmorenozamora.booking.services.impl.AvailabilityServiceImpl;
 
 @RestController
 public class AvailabilityController {
