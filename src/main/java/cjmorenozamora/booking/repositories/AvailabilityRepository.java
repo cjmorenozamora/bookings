@@ -19,5 +19,9 @@ public interface AvailabilityRepository extends JpaRepository<Availability,Avail
 	@Modifying
 	@Query("UPDATE Availability a SET a.rooms = a.rooms-1 WHERE (a.date BETWEEN ?1 AND ?2) AND (a.hotel.id = ?3)")
 	Integer updateAvailability(LocalDate entryDate, LocalDate exitDate, Integer hotelId);
+	
+	@Modifying
+	@Query("UPDATE Availability a SET a.rooms = a.rooms+1 WHERE (a.date BETWEEN ?1 AND ?2) AND (a.hotel.id = ?3)")
+	Integer updateAvailabilityAddRooms(LocalDate entryDate, LocalDate exitDate, Integer hotelId);
 
 }

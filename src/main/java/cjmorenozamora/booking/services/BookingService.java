@@ -41,13 +41,12 @@ public class BookingService implements BookingInterface {
 		List<Hotel> hotels = availabilityRepository.findHotels(entryDate, entryDate);
 		Boolean available = false;
 
-		for (Hotel hotel : hotels) {
-			if (hotel.getId() == hotelId) {
-				available = true;
-				break;
-			} else {
-				// no hay reservas
-				throw new RuntimeException("No hay reservas");
+		Iterator<Hotel> it = hotels.iterator();
+		
+		while(it.hasNext() && available == false) {
+			
+			if(it.next().getId() == hotelId) {
+				available=true;
 			}
 		}
 
@@ -56,6 +55,8 @@ public class BookingService implements BookingInterface {
 					.build();
 			bookingRepository.save(booking);
 			availabilityRepository.updateAvailability(entryDate, exitDate, hotelId);
+		}else {
+			throw new RuntimeException("No hay reservas");
 		}
 
 	}
@@ -116,8 +117,15 @@ public class BookingService implements BookingInterface {
 	}
 
 	@Override
+	@Transactional
 	public void deleteBookings(Integer bookingId) {
-		// TODO Auto-generated method stub
+		
+
+		Booking booking = bookingRepository.findById(bookingId).get();
+
+		bookingRepository.deleteById(bookingId);
+		
+		availabilityRepository.updateAvailabilityAddRooms(booking.getDateFrom(), booking.getDateTo(), booking.getHotelId());
 
 	}
 }

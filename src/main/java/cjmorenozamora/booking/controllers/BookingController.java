@@ -58,6 +58,7 @@ public class BookingController {
 	@DeleteMapping("/bookings/{booking}")
 	public void deleteBookings(@PathVariable Integer booking) {
 
+		service.deleteBookings(booking);
 	}
 
 }
