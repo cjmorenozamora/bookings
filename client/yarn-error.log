@@ -1,0 +1,95 @@
+Arguments: 
+  /home/jgalisteo/.asdf/installs/nodejs/9.9.0/bin/node /home/jgalisteo/.asdf/installs/nodejs/9.9.0/.npm/bin/yarn install
+
+PATH: 
+  /home/jgalisteo/.asdf/shims:/home/jgalisteo/.asdf/bin:/home/jgalisteo/.bin:/home/jgalisteo/bin:/home/jgalisteo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jgalisteo/Android/Sdk/tools:/home/jgalisteo/gradle-4.1/bin:/opt/mssql-tools/bin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  9.9.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://npm.nosolosoftware.es/ns-table/-/ns-table-4.7.1.tgz: Request failed "404 Not Found"
+      at ResponseError.ExtendableBuiltin (/home/jgalisteo/.asdf/installs/nodejs/9.9.0/.npm/lib/node_modules/yarn/lib/cli.js:212:66)
+      at new ResponseError (/home/jgalisteo/.asdf/installs/nodejs/9.9.0/.npm/lib/node_modules/yarn/lib/cli.js:318:124)
+      at Request.<anonymous> (/home/jgalisteo/.asdf/installs/nodejs/9.9.0/.npm/lib/node_modules/yarn/lib/cli.js:61933:26)
+      at Request.emit (events.js:180:13)
+      at Request.module.exports.Request.onRequestResponse (/home/jgalisteo/.asdf/installs/nodejs/9.9.0/.npm/lib/node_modules/yarn/lib/cli.js:134041:10)
+      at ClientRequest.emit (events.js:180:13)
+      at HTTPParser.parserOnIncomingClient (_http_client.js:539:21)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:117:17)
+      at TLSSocket.socketOnData (_http_client.js:444:20)
+      at TLSSocket.emit (events.js:180:13)
+
+npm manifest: 
+  {
+    "name": "tutorial",
+    "version": "0.1.0",
+    "description": "tutorial proyect",
+    "main": "dist/tutorial.js",
+    "scripts": {
+      "dist": "check-dependencies && webpack --env production --optimize-minimize",
+      "start": "check-dependencies && webpack-dev-server --env development --inline --hot --host 0.0.0.0",
+      "g": "check-dependencies && node node_modules/ns-generator/generator.js"
+    },
+    "author": "NSS",
+    "license": "ISC",
+    "dependencies": {
+      "core-js": "^2.5.3",
+      "jquery": "^3.3.1",
+      "ns-accordion": "^1.0.0",
+      "ns-button": "^1.0.1",
+      "ns-checkbox": "^1.0.0",
+      "ns-dropdown": "^1.0.1",
+      "ns-field": "^1.0.0",
+      "ns-icon": "^1.0.0",
+      "ns-input": "^1.0.0",
+      "ns-layout-menu": "^1.1.0",
+      "ns-loading": "^1.0.0",
+      "ns-menu": "^1.0.0",
+      "ns-notifications": "^1.0.0",
+      "ns-radio": "^1.0.0",
+      "ns-select": "^2.0.0",
+      "ns-style": "^1.0.6",
+      "ns-table": "^4.0.0",
+      "uglify-js": "^3.3.11",
+      "vue": "^2.5.13",
+      "vue-i18n": "^7.4.2",
+      "vue-resource": "^1.4.0",
+      "vue-router": "^3.0.1",
+      "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.2",
+      "babel-plugin-transform-object-assign": "^6.22.0",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-es2015": "^6.24.1",
+      "check-dependencies": "^1.1.0",
+      "clean-webpack-plugin": "^0.1.18",
+      "css-loader": "^0.28.9",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "file-loader": "^1.1.9",
+      "html-webpack-plugin": "^2.30.1",
+      "json-loader": "^0.5.7",
+      "node-sass": "^4.7.2",
+      "ns-generator": "^0.2.2",
+      "pug": "^2.0.0-rc.4",
+      "pug-loader": "^2.3.0",
+      "sass-loader": "^6.0.6",
+      "style-loader": "^0.20.2",
+      "webpack": "^3.11.0",
+      "webpack-dev-server": "^2.11.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
